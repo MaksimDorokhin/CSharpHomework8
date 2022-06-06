@@ -9,7 +9,7 @@ void Fill3DArray(int[,,] matr)
             {
                 matr[i, j, k] = count;
                 count++;
-            }   
+            }
 }
 void Print3DArray(int[,,] matr)
 {
@@ -29,5 +29,10 @@ int m = int.Parse(Console.ReadLine() ?? "0");
 Console.Write("Введите 3-е измерение массива: ");
 int k = int.Parse(Console.ReadLine() ?? "0");
 int[,,] matrix = new int[n, m, k];
+if (n * m * k + 9 > 99)
+{
+    Console.WriteLine($"Невозможно заполнить 3-х мерную матрицу с измерениями {n}, {m}, {k}");
+    Console.WriteLine("не повторяющимися двухзначными числами! Будут также использованы трехзначные числа.");
+}
 Fill3DArray(matrix);
 Print3DArray(matrix);
