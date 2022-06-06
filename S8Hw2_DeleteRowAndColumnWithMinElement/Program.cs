@@ -41,35 +41,23 @@ int[] IndexesOfMinElementIn2DArray(int[,] matr)
 }
 int[,] DeleteRowAndColumn(int[,] matr, int row, int column)
 {
-    int[,] newMatr = new int [matr.GetLength(0) - 1, matr.GetLength(1) - 1];
+    int[,] newMatr = new int[matr.GetLength(0) - 1, matr.GetLength(1) - 1];
     for (int i = 0; i < matr.GetLength(0) - 1; i++)
     {
         for (int j = 0; j < matr.GetLength(1) - 1; j++)
         {
             if (i >= row && j < column)
-                newMatr[i,j] = matr[i+1,j];
+                newMatr[i, j] = matr[i + 1, j];
             else if (j >= column && i < row)
-                newMatr[i,j] = matr[i,j+1];
-             else if (i >= row && j >= column)
-                newMatr[i,j] = matr[i+1,j+1];
-            else 
-                newMatr[i,j] = matr[i,j];
+                newMatr[i, j] = matr[i, j + 1];
+            else if (i >= row && j >= column)
+                newMatr[i, j] = matr[i + 1, j + 1];
+            else
+                newMatr[i, j] = matr[i, j];
         }
-    }   
+    }
     return newMatr;
 }
-// int[,] DeleteRowAndColumn(int[,] matr, int row, int column)
-// {
-//     for (int i = 0; i < matr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < matr.GetLength(1); j++)
-//         {
-//             if (i == row || j == column)
-//                 matr[i, j] = 0;
-//         }
-//     }
-//     return matr;
-// }
 Console.Clear();
 Console.Write("Введите кол-во строк массива: ");
 int n = int.Parse(Console.ReadLine() ?? "0");
@@ -81,8 +69,8 @@ Console.WriteLine("Полученный массив целых чисел:");
 PrintArray(matrix);
 Console.WriteLine($"Индексы минимального элемента: строка = {IndexesOfMinElementIn2DArray(matrix)[0] + 1} "
                                                 + $"столбец = {IndexesOfMinElementIn2DArray(matrix)[1] + 1}");
-Console.WriteLine("Массив после удаления строки и столбца," 
-                +" на пересечении которых расположен наименьший элемент:");                                               
+Console.WriteLine("Массив после удаления строки и столбца,"
+                + " на пересечении которых расположен наименьший элемент:");
 PrintArray(DeleteRowAndColumn(matr: matrix,
                               row: IndexesOfMinElementIn2DArray(matrix)[0],
                               column: IndexesOfMinElementIn2DArray(matrix)[1]));
