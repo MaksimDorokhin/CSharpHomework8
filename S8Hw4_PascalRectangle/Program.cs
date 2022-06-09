@@ -29,6 +29,6 @@ int[,] FillPascalTriangle(int height)
     return pascal;
 }
 Console.Clear();
-Console.Write("Введите ширину треугольника Паскаля: ");
+Console.Write("Введите высоту треугольника Паскаля: ");
 int height = int.Parse(Console.ReadLine() ?? "0");
 PrintPascalTriangle(FillPascalTriangle(height));
